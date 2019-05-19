@@ -6,7 +6,7 @@
 /*   By: wta <wta@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/19 20:07:13 by wta               #+#    #+#             */
-/*   Updated: 2019/03/20 19:57:30 by williamta        ###   ########.fr       */
+/*   Updated: 2019/05/16 00:02:44 by wta              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <stdlib.h>
 #include <fcntl.h>
 #include "libft.h"
+#include "get_next_line.h"
 
 t_list	*get_file(t_list_info *list, int fd)
 {

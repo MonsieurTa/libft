@@ -1,21 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wta <wta@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/01 13:04:33 by wta               #+#    #+#             */
-/*   Updated: 2018/08/01 15:02:44 by wta              ###   ########.fr       */
+/*   Created: 2018/08/03 14:15:36 by wta               #+#    #+#             */
+/*   Updated: 2019/05/15 22:55:32 by wta              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int		ft_strcmp(const char *s1, const char *s2)
+int		ft_toupper(int c)
 {
-	while (*s1++ == *s2++)
-		if (*s1 == 0 && *s2 == 0)
-			return (0);
-	return (*(const unsigned char*)--s1 - *(const unsigned char*)--s2);
+	return ((c >= 'a' && c <= 'z') ? c - 32 : c);
 }

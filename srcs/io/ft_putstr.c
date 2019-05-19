@@ -1,31 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memccpy.c                                       :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wta <wta@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/29 02:35:47 by wta               #+#    #+#             */
-/*   Updated: 2018/11/05 15:09:10 by wta              ###   ########.fr       */
+/*   Created: 2018/08/05 19:04:32 by wta               #+#    #+#             */
+/*   Updated: 2019/05/15 23:44:30 by wta              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 #include "libft.h"
 
-void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
+void	ft_putstr(char const *s)
 {
-	unsigned char	*dest;
-	unsigned char	*source;
-	unsigned char	ref;
-
-	ref = c;
-	dest = (unsigned char*)dst;
-	source = (unsigned char*)src;
-	while (n--)
-	{
-		*dest++ = *source++;
-		if (ref == *(source - 1))
-			return (dest);
-	}
-	return (NULL);
+	write(1, s, ft_strlen(s));
 }

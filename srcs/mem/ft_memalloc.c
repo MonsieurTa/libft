@@ -1,36 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_memalloc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wta <wta@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/19 19:56:49 by wta               #+#    #+#             */
-/*   Updated: 2019/03/19 19:56:55 by wta              ###   ########.fr       */
+/*   Created: 2018/08/03 14:50:32 by wta               #+#    #+#             */
+/*   Updated: 2019/05/15 23:10:47 by wta              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "libft.h"
 
-char	*ft_itoa(int n)
+void	*ft_memalloc(size_t size)
 {
-	size_t	len;
-	long	nb;
-	char	*str;
+	unsigned char	*ptr;
+	size_t			i;
 
-	len = ft_intlen_base(n, 10);
-	if (!(str = (char*)malloc(sizeof(char) * (len + 1))))
-		return (NULL);
-	*(str + len) = 0;
-	nb = n;
-	nb = (nb < 0) ? -nb : nb;
-	while (len > 1)
+	ptr = NULL;
+	if ((ptr = (unsigned char*)malloc(size)) != NULL)
 	{
-		len--;
-		*(str + len) = nb % 10 + '0';
-		nb /= 10;
+		i = -1;
+		while (++i < size)
+			ptr[i] = 0;
 	}
-	*str = (n < 0) ? '-' : nb % 10 + '0';
-	return (str);
+	return ((void*)ptr);
 }

@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_intlen.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wta <wta@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/09 17:14:57 by wta               #+#    #+#             */
-/*   Updated: 2018/11/06 07:38:14 by wta              ###   ########.fr       */
+/*   Created: 2018/07/29 02:57:20 by wta               #+#    #+#             */
+/*   Updated: 2019/05/15 23:12:02 by wta              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
 
-size_t	ft_intlen_base(int n, int base)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	size_t	len;
+	const unsigned char	*dst;
 
-	len = (n <= 0) ? 1 : 0;
-	while (n != 0)
-	{
-		n /= base;
-		len++;
-	}
-	return (len);
+	dst = (const unsigned char*)s;
+	while (n--)
+		if (*dst++ == (unsigned char)c)
+			return ((void*)dst - 1);
+	return (NULL);
 }

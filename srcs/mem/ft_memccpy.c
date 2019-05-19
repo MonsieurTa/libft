@@ -1,18 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wta <wta@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/02 13:33:39 by wta               #+#    #+#             */
-/*   Updated: 2018/08/02 14:46:04 by wta              ###   ########.fr       */
+/*   Created: 2018/07/29 02:35:47 by wta               #+#    #+#             */
+/*   Updated: 2019/05/15 23:11:43 by wta              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
+#include "stdint.h"
 
-int		ft_isascii(int c)
+void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-	return (c >= 0 && c <= 127);
+	uint8_t	*dest;
+	uint8_t	*source;
+	uint8_t	ref;
+
+	ref = c;
+	dest = (uint8_t*)dst;
+	source = (uint8_t*)src;
+	while (n--)
+	{
+		*dest++ = *source++;
+		if (ref == *(source - 1))
+			return (dest);
+	}
+	return (NULL);
 }

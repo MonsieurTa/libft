@@ -1,20 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strclr.c                                        :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wta <wta@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/03 19:20:20 by wta               #+#    #+#             */
-/*   Updated: 2018/08/09 04:29:27 by wta              ###   ########.fr       */
+/*   Created: 2019/05/15 22:10:46 by wta               #+#    #+#             */
+/*   Updated: 2019/05/15 22:14:17 by wta              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
+# define BUFF_SIZE 1024
 
-void	ft_strclr(char *s)
+# include "libft.h"
+
+typedef struct	s_gnl
 {
-	if (s)
-		while (*s)
-			*s++ = 0;
-}
+	char	*str;
+	int		fd;
+}				t_gnl;
+
+int	get_next_line(const int fd, char **line);
+
+#endif

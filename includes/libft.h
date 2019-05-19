@@ -6,7 +6,7 @@
 /*   By: wta <wta@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/28 20:38:40 by wta               #+#    #+#             */
-/*   Updated: 2019/03/20 19:57:38 by williamta        ###   ########.fr       */
+/*   Updated: 2019/05/15 23:42:55 by wta              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,25 +16,21 @@
 
 # include <unistd.h>
 
-typedef struct	s_list
+struct	s_list
 {
 	void			*content;
 	size_t			content_size;
 	struct s_list	*next;
 	struct s_list	*prev;
-}				t_list;
+};
+typedef struct s_list t_list;
 
-typedef struct	s_list_info
+struct	s_list_info
 {
 	t_list	*head;
 	t_list	*tail;
-}				t_list_info;
-
-typedef struct	s_gnl
-{
-	char	*str;
-	int		fd;
-}				t_gnl;
+};
+typedef struct s_list_info t_list_info;
 
 int				ft_atoi(const char *str);
 void			ft_bzero(void *s, size_t n);
@@ -114,6 +110,5 @@ void			ft_putnbr(int n);
 void			ft_putnbr_fd(int n, int fd);
 void			ft_putstr(char const *s);
 void			ft_putstr_fd(char const *s, int fd);
-int				get_next_line(const int fd, char **line);
 
 #endif

@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wta <wta@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/29 02:57:20 by wta               #+#    #+#             */
-/*   Updated: 2018/11/05 14:48:56 by wta              ###   ########.fr       */
+/*   Created: 2018/07/31 09:08:15 by wta               #+#    #+#             */
+/*   Updated: 2019/05/15 23:48:29 by wta              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
 
-void	*ft_memchr(const void *s, int c, size_t n)
+char	*ft_strchr(const char *s, int c)
 {
-	const unsigned char	*dst;
+	int		idx;
 
-	dst = (const unsigned char*)s;
-	while (n--)
-		if (*dst++ == (unsigned char)c)
-			return ((void*)dst - 1);
-	return (NULL);
+	idx = 0;
+	while (s[idx] && s[idx] != c)
+		idx++;
+	return ((s[idx] == c) ? (char*)&(s[idx]) : NULL);
 }

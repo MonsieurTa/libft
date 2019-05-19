@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wta <wta@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/31 09:08:15 by wta               #+#    #+#             */
-/*   Updated: 2018/08/09 02:52:01 by wta              ###   ########.fr       */
+/*   Created: 2018/08/01 13:04:33 by wta               #+#    #+#             */
+/*   Updated: 2019/05/15 23:21:42 by wta              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-char	*ft_strchr(const char *s, int c)
+int		ft_strcmp(const char *s1, const char *s2)
 {
-	char	ref;
-
-	ref = c;
-	while (*s)
-		if (ref == *s++)
-			return ((char*)--s);
-	return ((*s == 0 && ref == 0) ? (char*)s : NULL);
+	while (*s1++ == *s2++)
+		if (*s1 == 0 && *s2 == 0)
+			return (0);
+	return (*(const unsigned char*)--s1 - *(const unsigned char*)--s2);
 }

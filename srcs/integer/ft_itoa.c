@@ -1,26 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wta <wta@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/29 15:53:31 by wta               #+#    #+#             */
-/*   Updated: 2018/11/05 15:07:41 by wta              ###   ########.fr       */
+/*   Created: 2019/03/19 19:56:49 by wta               #+#    #+#             */
+/*   Updated: 2019/05/15 23:43:33 by wta              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
+#include <libft.h>
 
-int		ft_memcmp(const void *s1, const void *s2, size_t n)
+char	*ft_itoa(int n)
 {
-	const unsigned char	*str1;
-	const unsigned char	*str2;
+	size_t	len;
+	long	nb;
+	char	*str;
 
-	str1 = s1;
-	str2 = s2;
-	while (n--)
-		if (*str1++ != *str2++)
-			return (*(str1 - 1) - *(str2 - 1));
-	return (0);
+	len = ft_intlen_base(n, 10);
+	if (!(str = (char*)malloc(sizeof(char) * (len + 1))))
+		return (NULL);
+	*(str + len) = 0;
+	nb = n;
+	nb = (nb < 0) ? -nb : nb;
+	while (len > 1)
+	{
+		len--;
+		*(str + len) = nb % 10 + '0';
+		nb /= 10;
+	}
+	*str = (n < 0) ? '-' : nb % 10 + '0';
+	return (str);
 }
