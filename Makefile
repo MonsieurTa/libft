@@ -157,6 +157,7 @@ OBJ = $(addprefix $(OBJ_PATH), $(SRCS:.c=.o))
 all: $(NAME)
 
 $(NAME): $(OBJ)
+	ar rc $(NAME) $(OBJ)
 
 $(OBJ_PATH):
 	mkdir -p $(addprefix $(OBJ_PATH), $(BUILD_PATH))
@@ -165,6 +166,7 @@ $(OBJ_PATH)%.o: $(SRCS_PATH)%.c | $(OBJ_PATH)
 	$(CC) $(CFLAG) $(INC) -c -o $@ $<
 
 clean:
+	/bin/rm -rf $(OBJ)
 	/bin/rm -rf $(OBJ_PATH)
 
 fclean: clean
