@@ -17,7 +17,7 @@ t_list	*ft_lstnew_mallocfree(void *content, size_t content_size)
 {
 	t_list	*node;
 
-	if ((node = (t_list *)malloc(sizeof (t_list))) == NULL)
+	if ((node = (t_list *)malloc(sizeof(t_list))) == NULL)
 		return (NULL);
 	ft_bzero(node, sizeof(t_list));
 	node->content = content;

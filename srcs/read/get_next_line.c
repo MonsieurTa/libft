@@ -40,7 +40,7 @@ int		read_fd(char **str, int fd)
 {
 	char	buf[BUFF_SIZE + 1];
 	int		ret;
-	
+
 	ft_bzero(buf, BUFF_SIZE + 1);
 	while ((ret = read(fd, buf, BUFF_SIZE)) > 0)
 	{
