@@ -32,7 +32,7 @@ static char	*ft_width_s(char *new, char *str, int len, t_lpf *node)
 char		*ft_convert_s(char *str, t_lpf *node)
 {
 	char	*new;
-	int		len;
+	size_t	len;
 
 	new = NULL;
 	if (str == NULL && !(new = ft_strdup("(null)")))
@@ -40,7 +40,7 @@ char		*ft_convert_s(char *str, t_lpf *node)
 	if (!new && !(new = ft_strdup(str)))
 		return (NULL);
 	len = ft_strlen(new);
-	if (((node->acc > 0 && node->acc < len) || (node->flag & ACC))
+	if (((node->acc > 0 && (size_t)node->acc < len) || (node->flag & ACC))
 		&& !(new = ft_strndupfree(new, node->acc)))
 		return (NULL);
 	len = (new) ? ft_strlen(new) : len;
