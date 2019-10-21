@@ -13,7 +13,7 @@
 #include <stdlib.h>
 #include "libft.h"
 
-static void	*del_tab(char **tab, int len)
+void	*del_tab(char **tab, int len)
 {
 	int	i;
 

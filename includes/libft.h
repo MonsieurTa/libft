@@ -109,4 +109,6 @@ void				ft_putnbr_fd(int n, int fd);
 void				ft_putstr(char const *s);
 void				ft_putstr_fd(char const *s, int fd);
 
+void                *del_tab(char **tab, int len);
+
 #endif
