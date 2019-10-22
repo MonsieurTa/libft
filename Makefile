@@ -14,10 +14,10 @@ NAME = libft.a
 CFLAG = -Wall -Wextra -Werror
 CC = gcc
 
-INC_PATH = includes/
+INC_PATH = include/
 INC = $(addprefix -I, $(INC_PATH))
-OBJ_PATH = objs/
-SRCS_PATH =	srcs/
+OBJ_PATH = obj/
+SRCS_PATH =	src/
 
 CHAR_PATH = char/
 CHAR_SRCS =			\
