@@ -12,7 +12,7 @@
 
 NAME = libft.a
 CFLAG = -Wall -Wextra -Werror
-CC = gcc
+CC = cc
 
 INC_PATH = include/
 INC = $(addprefix -I, $(INC_PATH))
