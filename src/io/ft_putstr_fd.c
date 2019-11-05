@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wta <wta@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: william <william@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/10 17:26:34 by wta               #+#    #+#             */
-/*   Updated: 2018/08/10 17:30:46 by wta              ###   ########.fr       */
+/*   Updated: 2019/11/05 13:09:36 by william          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,5 @@
 void	ft_putstr_fd(char const *s, int fd)
 {
 	if (s)
-		while (*s)
-			ft_putchar_fd(*s++, fd);
+		write(STDERR_FILENO, s, ft_strlen(s));
 }
