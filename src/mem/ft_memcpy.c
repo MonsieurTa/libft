@@ -6,7 +6,7 @@
 /*   By: wta <wta@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/29 02:31:50 by wta               #+#    #+#             */
-/*   Updated: 2019/10/24 17:32:29 by wta              ###   ########.fr       */
+/*   Updated: 2019/12/20 17:54:32 by wta              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,7 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 		n -= sizeof(uint16_t);
 		*(uint16_t*)(dst + n) = *(uint16_t*)(src + n);
 	}
-	while (n > 0)
-	{
-		n--;
+	while (n-- > 0)
 		*(uint8_t*)(dst + n) = *(uint8_t*)(src + n);
-	}
 	return (dst);
 }

@@ -6,7 +6,7 @@
 /*   By: wta <wta@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/28 20:38:40 by wta               #+#    #+#             */
-/*   Updated: 2019/05/15 23:42:55 by wta              ###   ########.fr       */
+/*   Updated: 2019/12/20 17:55:15 by wta              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,6 @@ void				ft_putnbr_fd(int n, int fd);
 void				ft_putstr(char const *s);
 void				ft_putstr_fd(char const *s, int fd);
 
-void                *del_tab(char **tab, int len);
+void				*del_tab(char **tab, int len);
 
 #endif

@@ -6,14 +6,14 @@
 /*   By: wta <wta@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/09 14:40:44 by wta               #+#    #+#             */
-/*   Updated: 2019/03/19 20:01:20 by wta              ###   ########.fr       */
+/*   Updated: 2019/12/20 17:46:01 by wta              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
 
-void	*del_tab(char **tab, int len)
+void		*del_tab(char **tab, int len)
 {
 	int	i;
 
