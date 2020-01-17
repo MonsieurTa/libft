@@ -6,13 +6,12 @@
 /*   By: wta <wta@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/17 14:31:42 by wta               #+#    #+#             */
-/*   Updated: 2020/01/17 14:51:31 by wta              ###   ########.fr       */
+/*   Updated: 2020/01/17 15:29:25 by wta              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_getopt.h"
 #include "libft.h"
-#include <stdio.h>
 #include <stdlib.h>
 
 int					g_optind = 1;
