@@ -6,7 +6,7 @@
 #    By: wta <wta@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/28 20:09:26 by wta               #+#    #+#              #
-#    Updated: 2019/05/20 10:58:15 by wta              ###   ########.fr        #
+#    Updated: 2020/01/17 14:50:19 by wta              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,35 +31,35 @@ CHAR_SRCS =			\
 
 INTEGER_PATH = integer/
 INTEGER_SRCS =			\
-	ft_atoi.c					\
+	ft_atoi.c			\
 	ft_intlen_base.c	\
 	ft_itoa.c
 
 IO_PATH = io/
-IO_SRCS =						\
-	ft_putchar.c			\
+IO_SRCS =				\
+	ft_putchar.c		\
 	ft_putchar_fd.c		\
-	ft_putendl.c			\
+	ft_putendl.c		\
 	ft_putendl_fd.c		\
-	ft_putnbr.c				\
+	ft_putnbr.c			\
 	ft_putnbr_fd.c		\
-	ft_putstr.c				\
+	ft_putstr.c			\
 	ft_putstr_fd.c
 
 LST_PATH = lst/
-LST_SRCS =								\
-	ft_delnode.c						\
-	ft_listdel.c						\
-	ft_lstadd.c							\
-	ft_lstappend.c					\
-	ft_lstdel.c							\
-	ft_lstdelone.c					\
-	ft_lstiter.c						\
-	ft_lstmap.c							\
-	ft_lstnew.c							\
+LST_SRCS =					\
+	ft_delnode.c			\
+	ft_listdel.c			\
+	ft_lstadd.c				\
+	ft_lstappend.c			\
+	ft_lstdel.c				\
+	ft_lstdelone.c			\
+	ft_lstiter.c			\
+	ft_lstmap.c				\
+	ft_lstnew.c				\
 	ft_lstnew_mallocfree.c	\
-	ft_pushback.c						\
-	ft_pushfront.c			
+	ft_pushback.c			\
+	ft_pushfront.c
 
 MEM_PATH = mem/
 MEM_SRCS =			\
@@ -71,47 +71,47 @@ MEM_SRCS =			\
 	ft_memcpy.c		\
 	ft_memdel.c		\
 	ft_memmove.c	\
-	ft_memset.c	
+	ft_memset.c
 
 READ_PATH = read/
 READ_SRCS =	get_next_line.c
 
 STR_PATH = str/
-STR_SRCS =					\
-	ft_strcat.c				\
-	ft_strchr.c				\
-	ft_strclr.c				\
-	ft_strcmp.c				\
-	ft_strcpy.c				\
-	ft_strdel.c				\
-	ft_strdup.c				\
+STR_SRCS =				\
+	ft_strcat.c			\
+	ft_strchr.c			\
+	ft_strclr.c			\
+	ft_strcmp.c			\
+	ft_strcpy.c			\
+	ft_strdel.c			\
+	ft_strdup.c			\
 	ft_strdupdel.c		\
-	ft_strequ.c				\
-	ft_striter.c			\
-	ft_striteri.c			\
-	ft_strjoin.c			\
+	ft_strequ.c			\
+	ft_striter.c		\
+	ft_striteri.c		\
+	ft_strjoin.c		\
 	ft_strjoindel.c		\
 	ft_strjoinfree.c	\
-	ft_strlcat.c			\
-	ft_strlen.c				\
-	ft_strmap.c				\
-	ft_strmapi.c			\
-	ft_strncat.c			\
-	ft_strncmp.c			\
-	ft_strncpy.c			\
-	ft_strndup.c			\
+	ft_strlcat.c		\
+	ft_strlen.c			\
+	ft_strmap.c			\
+	ft_strmapi.c		\
+	ft_strncat.c		\
+	ft_strncmp.c		\
+	ft_strncpy.c		\
+	ft_strndup.c		\
 	ft_strndupfree.c	\
-	ft_strnequ.c			\
-	ft_strnew.c				\
-	ft_strnstr.c			\
-	ft_strrchr.c			\
-	ft_strsplit.c			\
-	ft_strstr.c				\
-	ft_strsub.c				\
-	ft_strtrim.c			\
-	ft_wdcpy.c				\
+	ft_strnequ.c		\
+	ft_strnew.c			\
+	ft_strnstr.c		\
+	ft_strrchr.c		\
+	ft_strsplit.c		\
+	ft_strstr.c			\
+	ft_strsub.c			\
+	ft_strtrim.c		\
+	ft_wdcpy.c			\
 	ft_word_count.c		\
-	ft_word_len.c			\
+	ft_word_len.c		\
 
 FT_PRINTF_PATH = ft_printf/
 FT_PRINTF_SRCS = \
@@ -131,26 +131,32 @@ FT_PRINTF_SRCS = \
 	ft_utils.c			\
 	ft_utils2.c
 
+FT_GETOPT_PATH = ft_getopt/
+FT_GETOPT_SRCS = \
+	ft_getopt.c
+
 BUILD_PATH =				\
 	$(SRCS_PATH)			\
 	$(CHAR_PATH)			\
-	$(INTEGER_PATH)		\
+	$(INTEGER_PATH)			\
 	$(IO_PATH)				\
 	$(LST_PATH)				\
 	$(MEM_PATH)				\
 	$(READ_PATH)			\
 	$(STR_PATH)				\
-	$(FT_PRINTF_PATH)
+	$(FT_PRINTF_PATH)		\
+	$(FT_GETOPT_PATH)		\
 
-SRCS =																					\
-	$(addprefix $(CHAR_PATH),$(CHAR_SRCS)) 				\
+SRCS =												\
+	$(addprefix $(CHAR_PATH),$(CHAR_SRCS)) 			\
 	$(addprefix $(INTEGER_PATH),$(INTEGER_SRCS))	\
-	$(addprefix $(IO_PATH),$(IO_SRCS))						\
-	$(addprefix $(LST_PATH),$(LST_SRCS))					\
-	$(addprefix $(MEM_PATH),$(MEM_SRCS))					\
-	$(addprefix $(READ_PATH),$(READ_SRCS))				\
-	$(addprefix $(STR_PATH),$(STR_SRCS))				\
-	$(addprefix $(FT_PRINTF_PATH),$(FT_PRINTF_SRCS))
+	$(addprefix $(IO_PATH),$(IO_SRCS))				\
+	$(addprefix $(LST_PATH),$(LST_SRCS))			\
+	$(addprefix $(MEM_PATH),$(MEM_SRCS))			\
+	$(addprefix $(READ_PATH),$(READ_SRCS))			\
+	$(addprefix $(STR_PATH),$(STR_SRCS))			\
+	$(addprefix $(FT_PRINTF_PATH),$(FT_PRINTF_SRCS))\
+	$(addprefix $(FT_GETOPT_PATH),$(FT_GETOPT_SRCS))\
 
 OBJ = $(addprefix $(OBJ_PATH), $(SRCS:.c=.o))
 

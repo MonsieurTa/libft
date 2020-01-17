@@ -5,46 +5,80 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: wta <wta@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/12 14:49:59 by wta               #+#    #+#             */
-/*   Updated: 2020/01/12 18:18:19 by wta              ###   ########.fr       */
+/*   Created: 2020/01/17 14:31:42 by wta               #+#    #+#             */
+/*   Updated: 2020/01/17 14:51:31 by wta              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_getopt.h"
 #include "libft.h"
+#include <stdio.h>
+#include <stdlib.h>
 
-extern int	g_optind = 1;
-extern int	g_optarg = NULL;
+int					g_optind = 1;
+int					g_optopt = 0;
+int					g_opterr = 1;
+char				*g_optarg = 0;
 
-static int	*scan_opt(const optchar[], char *optstring, int *nextchar)
+static void	assign_optarg(int argc, char *const argv[], char *curr_opt)
 {
-	char		*curr_opt;
-	char		*curr_c;
-
-	curr_c = &optchar[*nextchar];
-	if (!(curr_opt = ft_strchr(optstring, *curr_c)))
-		return (NULL);
-
-	if (++(*nextchar) > ft_strlen(optchar))
-	{
-		g_optind++;
-		*nextchar = 0;
-	}
-	return ((int*)curr_c);
+	if (*(curr_opt + 2))
+		g_optarg = curr_opt + 2;
+	else if (g_optind + 1 < argc)
+		g_optarg = (char*)&argv[g_optind + 1];
+	else
+		g_optarg = 0;
 }
 
-int		ft_getopt(int argc, char *const argv[], const char *optstring)
+static int	scan_opt(int argc, char *const argv[], const char *optstring,
+										int *nextchar)
 {
-	static int	nextchar = 0;
-	int					*curr_c;
+	char	*optchar;
+	char	*curr_opt;
+	int		curr_c;
 
-	if (g_optind >= argc || (ft_strequ(argv[g_optind], "--") == 1 && g_optind++))
+	optchar = argv[g_optind];
+	if (optchar[0] != '-')
+		return (0);
+	curr_c = (int)(optchar[*nextchar]);
+	if (!(curr_opt = ft_strchr(optstring, curr_c)))
+		return (0);
+	if (ft_strnequ(curr_opt + 1, "::", 2))
+		g_optarg = *(curr_opt + 3) ? curr_opt + 3 : 0;
+	else if (ft_strnequ(curr_opt + 1, ":", 1))
+		assign_optarg(argc, argv, curr_opt);
+	if ((size_t)++(*nextchar) >= ft_strlen(optchar))
+	{
+		g_optind++;
+		*nextchar = 1;
+	}
+	return (curr_c);
+}
+
+static void	print_error(char *const argv[])
+{
+	ft_putstr_fd(argv[0], STDERR_FILENO);
+	ft_putstr_fd(": illegal option -- ", STDERR_FILENO);
+	ft_putchar_fd(g_optopt, STDERR_FILENO);
+	ft_putchar_fd('\n', STDERR_FILENO);
+}
+
+int			ft_getopt(int argc, char *const argv[],
+						const char *optstring)
+{
+	static int	nextchar = 1;
+	int			curr_c;
+
+	if (g_optopt || g_optind >= argc
+	|| ft_strequ(argv[g_optind], "-") == 1
+	|| (ft_strequ(argv[g_optind], "--") == 1 && g_optind++))
 		return (-1);
-	else if (ft_strequ(argv[g_optind], "-") == 1)
-		return (-1);
-	curr_c = scan_opt(argv[g_optind], optstring, &nextchar);
+	curr_c = scan_opt(argc, argv, optstring, &nextchar);
 	if (!curr_c)
-		return invalid_optchar(*curr_c);
-
-	return (0);
+	{
+		g_optopt = argv[g_optind][nextchar];
+		g_opterr ? print_error(argv) : NULL;
+		return ((int)('?'));
+	}
+	return (curr_c);
 }
