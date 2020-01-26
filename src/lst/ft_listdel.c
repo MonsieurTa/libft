@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_listdel.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: williamta <marvin@42.fr>                   +#+  +:+       +#+        */
+/*   By: wta <wta@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/19 23:23:19 by williamta         #+#    #+#             */
-/*   Updated: 2019/03/20 17:51:59 by williamta        ###   ########.fr       */
+/*   Updated: 2020/01/26 17:34:08 by wta              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,6 @@ void	ft_listdel(t_list_info *list)
 			free(tmp->content);
 			free(tmp);
 		}
+		list->size = 0;
 	}
 }

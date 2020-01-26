@@ -6,7 +6,7 @@
 /*   By: wta <wta@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/19 20:20:19 by wta               #+#    #+#             */
-/*   Updated: 2019/03/20 17:50:37 by williamta        ###   ########.fr       */
+/*   Updated: 2020/01/26 17:33:31 by wta              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ void	ft_pushfront(t_list_info *list, t_list *node)
 			list->head->prev = node;
 			list->head = node;
 		}
+		list->size++;
 	}
 }
