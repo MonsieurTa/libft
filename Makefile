@@ -6,7 +6,7 @@
 #    By: wta <wta@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/28 20:09:26 by wta               #+#    #+#              #
-#    Updated: 2020/01/17 14:50:19 by wta              ###   ########.fr        #
+#    Updated: 2020/02/14 07:26:30 by wta              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC = cc
 
 INC_PATH = include/
 INC = $(addprefix -I, $(INC_PATH))
-OBJ_PATH = obj/
+OBJ_PATH = objs/
 SRCS_PATH =	src/
 
 CHAR_PATH = char/
@@ -172,7 +172,6 @@ $(OBJ_PATH)%.o: $(SRCS_PATH)%.c | $(OBJ_PATH)
 	$(CC) $(CFLAG) $(INC) -c -o $@ $<
 
 clean:
-	/bin/rm -rf $(OBJ)
 	/bin/rm -rf $(OBJ_PATH)
 
 fclean: clean
