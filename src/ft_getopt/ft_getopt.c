@@ -6,7 +6,7 @@
 /*   By: wta <wta@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/17 14:31:42 by wta               #+#    #+#             */
-/*   Updated: 2020/02/28 10:57:22 by wta              ###   ########.fr       */
+/*   Updated: 2020/02/29 15:22:13 by wta              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,8 @@ int			ft_getopt(int argc, char *const argv[],
 	int			curr_c;
 
 	if (g_optopt || g_optind >= argc
-	|| ft_strequ(argv[g_optind], "-") == 1
-	|| (ft_strequ(argv[g_optind], "--") == 1 && g_optind++))
+	|| (!ft_strnequ(argv[g_optind], "-", 1)
+	&& !ft_strnequ(argv[g_optind], "--", 2)))
 		return (-1);
 	curr_c = scan_opt(argc, argv, optstring, &nextchar);
 	if (!curr_c)
