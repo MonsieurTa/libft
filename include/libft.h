@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wta <wta@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: william <william@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/28 20:38:40 by wta               #+#    #+#             */
-/*   Updated: 2020/01/26 17:33:06 by wta              ###   ########.fr       */
+/*   Updated: 2020/05/01 16:11:00 by william          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ typedef struct		s_list_info
 {
 	t_list		*head;
 	t_list		*tail;
-	uint32_t	size;
+	size_t		size;
 }					t_list_info;
 
 int					ft_atoi(const char *str);
